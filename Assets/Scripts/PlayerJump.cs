@@ -19,7 +19,7 @@ public class PlayerJump : MonoBehaviour
     public LayerMask groundMask;
     
     // Boolean tracking whether the player is currently grounded
-    private bool _groundCheck;
+    public bool _groundCheck;
 
     // Upward force applied when the player jumps
     public float jumpForce = 10;
@@ -59,7 +59,7 @@ public class PlayerJump : MonoBehaviour
        // Checks if the gravity should be getting faster (applies extra downward force when falling)
        if(_rigidbody2D.velocity.y < 0) {
            // Increase falling speed smoothly over time using deltaTime
-           _rigidbody2D.velocity += _gravityVector * (fallForce * Time.deltaTime);
+           _rigidbody2D.velocity += _gravityVector * (fallForce * Time.deltaTime);  
        }
    }
 }

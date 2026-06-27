@@ -18,6 +18,9 @@ public class GameState : MonoBehaviour
     // Remaining health points for each player
     public int playerOneHealth = 3;
     public int playerTwoHealth = 3;
+
+    public Rigidbody2D playerOne;
+    public Rigidbody2D playerTwo;
     
     // Input axis and button string prefixes used to map multiplayer controls dynamically
     public string horizontalAxis = "Horizontal_";
@@ -71,7 +74,8 @@ public class GameState : MonoBehaviour
                 if (_playerOneReady && _playerTwoReady) {
                     // Transition to active match state
                     gameState = GameStateEnum.InMatch;
-                    
+                        playerOne.bodyType = RigidbodyType2D.Dynamic;
+                        playerTwo.bodyType = RigidbodyType2D.Dynamic;
                     // Notify the UI to hide lobby options and display game elements
                     _readyView.SetInMatch();
                 }
